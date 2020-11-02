@@ -9,11 +9,11 @@ var bike = [
     },
     {
         'nome' : 'Atala',
-        'peso' : 6
+        'peso' : 3
     },
     {
         'nome' : 'Scott',
-        'peso' : 5
+        'peso' : 6
     }
 ];
 console.log(bike);
@@ -21,22 +21,24 @@ console.log(bike);
 //creo variabile per il peso corrente che sto scorrendo
 var currentWeight;
 
-//creo variabile per salvare il peso precedente
-var minor;
+//creo variabile per salvare il peso minore
+var minor = bike[0]['peso'];
+var minorName =  bike[0]['nome'];
 
 //cre ciclo per scorrere ogni oggetto dell'array
 for (var i = 0; i < bike.length; i++) {
     thisBike = bike[i]
     console.log(thisBike);
-    //creo ciclo for in per stampare ogni singola proprietà dell'oggetto
-    for (var key in bike[i]) {
-        currentWeight = thisBike['peso'];
-        console.log( thisBike['nome'] + ' ha un peso' + ' ' + currentWeight);
-        // console.log(key + ': ' + thisBike[key]);
-        if (currentWeight < minor) {
-            minor = currentWeight;
-            console.log('winner ' + bike[i]);
-        }
+    var currentWeight = thisBike['peso'];
+    var currentName = thisBike['nome'];
+
+    if (currentWeight < minor) {
+        minor = currentWeight;
+        minorName = currentName;
     }
 }
+
+console.log('the winner  is '+ minorName + ' con ' + minor + ' kg' );
+$('#best-bike').text('the winner  is '+ minorName + ' con ' + minor + ' kg')
+
 });
