@@ -29,21 +29,35 @@ $(document).ready(function() {
         var thisStudent = students[i];
         console.log(thisStudent);
 
-        //creo clone di ogni singolo oggetto
+        // 1st method
+        // creo clone di ogni singolo oggetto e del suo contenuto
         var newObject = {
             'name' : thisStudent.name,
             'lastName' : thisStudent.lastName,
             'age' : thisStudent.age,
             'position' : stringGen(1)
         };
+
+        //second method {
+        // var newObject = {};
+        // for (var key in thisStudent) {
+        //     // console.log(key);
+        //     // console.log(thisStudent[key]);
+        //     newObject[key] = thisStudent[key];
+        // }
+        //creo nuovo key e gli dò il suo valore
+        newObject.position = stringGen(1);
+        //faccio push di ogni singlo oggetto
+        newObjects.push(newObject);
+
+    }
         //genero una lettera random tramite funzione
         // var randomLetter = stringGen(1);
         //push lo studente corrente al nuovo array
-        newObjects.push(newObject);
         //per ogni singolo oggetto aggiungo la nuova proprietà position che contiene la lettera random generata per ogni itterazione
         // newObjects[i].position = randomLetter;
 
-    }
+    // }
     console.log('new array : ');
     console.log(newObjects);
     console.log('old array : ');
