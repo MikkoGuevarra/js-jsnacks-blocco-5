@@ -19,22 +19,35 @@ $(document).ready(function() {
         },
     ];
 
+
+
     //creo nuovo array
-    var newObject = [];
+    var newObjects = [];
 
     //ciclo il primo array per prendere ogni singolo oggetto
     for (var i = 0; i < students.length; i++) {
         var thisStudent = students[i];
         console.log(thisStudent);
+
+        //creo clone di ogni singolo oggetto
+        var newObject = {
+            'name' : thisStudent.name,
+            'lastName' : thisStudent.lastName,
+            'age' : thisStudent.age,
+            'position' : stringGen(1)
+        };
         //genero una lettera random tramite funzione
-        var randomLetter = stringGen(1);
+        // var randomLetter = stringGen(1);
         //push lo studente corrente al nuovo array
-        newObject.push(students[i]);
+        newObjects.push(newObject);
         //per ogni singolo oggetto aggiungo la nuova proprietà position che contiene la lettera random generata per ogni itterazione
-        newObject[i].position = randomLetter;
+        // newObjects[i].position = randomLetter;
 
     }
-    console.log(newObject);
+    console.log('new array : ');
+    console.log(newObjects);
+    console.log('old array : ');
+    console.log(students);
 
 });
 function stringGen(len) {
